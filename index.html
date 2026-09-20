@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--
+  ================================================================
+  ALWAYS - Olwis Style  |  Tienda en linea
+  Desarrollado por Technology Inclusion
+  ================================================================
+-->
+
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALWAYS · Olwis Style — Bolsos en cuero vegano</title>
+<meta name="description" content="Bolsos y morrales en cuero vegano con chapas de acero. Vida útil de 5 a 20 años, kit de limpieza incluido. Envíos a toda Colombia.">
+<meta name="author" content="Technology Inclusion">
+<meta name="generator" content="Technology Inclusion">
+<meta property="og:title" content="ALWAYS · Olwis Style">
+<meta property="og:description" content="Arma tu estilo. Nosotros ponemos el bolso.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papel:#EDE9E3;
+    --tinta:#17171A;
+    --marino:#1B2740;
+    --camel:#B5854F;
+    --linea:rgba(23,23,26,.16);
+    --suave:rgba(23,23,26,.55);
+    --display:"Jost","Century Gothic",system-ui,sans-serif;
+    --texto:"Inter",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  img{display:block;width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  .envoltura{max-width:1180px;margin:0 auto;padding:0 28px}
+  .rotulo{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--suave);margin-bottom:26px}
+
+  /* ---------- barra ---------- */
+  .barra{display:flex;align-items:center;justify-content:space-between;padding:22px 0;gap:24px}
+  .logo{display:flex;align-items:center;gap:14px}
+  .logo img{width:46px;height:46px;object-fit:cover;background:#000}
+  .logo b{font-family:var(--display);font-weight:400;font-size:16px;letter-spacing:.4em;text-indent:.4em}
+  .logo span{display:block;font-size:8px;letter-spacing:.32em;text-indent:.32em;color:var(--suave);margin-top:2px}
+  .menu{display:flex;gap:30px;font-size:13.5px;color:var(--suave)}
+  .menu a:hover{color:var(--tinta)}
+  .wa{font-size:13.5px;border-bottom:1px solid var(--linea);padding-bottom:2px}
+  .wa:hover{border-color:var(--tinta)}
+
+  /* ---------- la semana ---------- */
+  .semana{padding:34px 0 30px;border-top:1px solid var(--linea)}
+  .dias{display:flex;flex-wrap:wrap;gap:34px;align-items:baseline;margin-bottom:34px}
+  .dia{font-family:var(--display);font-weight:200;font-size:clamp(28px,5vw,56px);letter-spacing:-.01em;color:rgba(23,23,26,.26);background:none;border:0;cursor:pointer;padding:0;line-height:1;transition:color .35s ease}
+  .dia:hover{color:rgba(23,23,26,.5)}
+  .dia[aria-selected="true"]{color:var(--tinta)}
+  .dia:disabled{color:rgba(23,23,26,.14);cursor:default}
+  .dia:disabled:hover{color:rgba(23,23,26,.14)}
+  .dia:focus-visible{outline:1px solid var(--tinta);outline-offset:6px}
+
+  .escena{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end}
+  .marco{position:relative;overflow:hidden;background:#E4E0DA}
+  .marco img{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+  .marco:hover img{transform:scale(1.025)}
+  .panel{padding-bottom:14px}
+  .panel h1{font-family:var(--display);font-weight:200;font-size:clamp(30px,3.6vw,48px);line-height:1.12;letter-spacing:-.015em;margin-bottom:20px}
+  .panel .bajada{color:var(--suave);max-width:36ch;margin-bottom:28px}
+  .pieza{border-top:1px solid var(--linea);padding-top:18px;margin-bottom:24px}
+  .pieza .nom{font-size:15px;margin-bottom:4px}
+  .pieza .det{font-size:13px;color:var(--suave)}
+  .precio{font-family:var(--display);font-weight:300;font-size:26px;margin-top:14px}
+  .acciones{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .boton{display:inline-block;background:var(--tinta);color:var(--papel);font-size:13.5px;letter-spacing:.05em;padding:15px 28px;transition:background .25s;border:1px solid var(--tinta)}
+  .boton:hover{background:var(--marino);border-color:var(--marino)}
+  .boton.linea{background:none;color:var(--tinta)}
+  .boton.linea:hover{background:var(--tinta);color:var(--papel)}
+  .bajo{display:block;font-size:12.5px;color:var(--suave);margin-top:14px}
+
+  /* ---------- ficha corta ---------- */
+  .hechos{border-top:1px solid var(--linea);margin-top:74px;padding:34px 0 0;display:flex;flex-wrap:wrap}
+  .hecho{flex:1 1 190px;padding:6px 26px 6px 0}
+  .hecho b{display:block;font-weight:400;font-size:14px;margin-bottom:2px}
+  .hecho span{font-size:13px;color:var(--suave)}
+
+  /* ---------- bolsos ---------- */
+  .bolsos{padding:80px 0 0}
+  .rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:26px}
+  .tarjeta figure{aspect-ratio:4/5;overflow:hidden;background:#E4E0DA}
+  .tarjeta figure img{height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+  .tarjeta:hover figure img{transform:scale(1.03)}
+  .tarjeta h3{font-weight:400;font-size:15px;margin:14px 0 3px}
+  .tarjeta .det{font-size:13px;color:var(--suave)}
+  .tarjeta .val{font-family:var(--display);font-weight:300;font-size:18px;margin-top:6px}
+  .colores{display:flex;gap:7px;margin-top:10px}
+  .colores i{width:11px;height:11px;border-radius:50%;border:1px solid var(--linea)}
+
+  /* ---------- eslogan + calle ---------- */
+  .calle{padding:96px 0 0}
+  .eslogan{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .eslogan h2{font-family:var(--display);font-weight:200;font-size:clamp(30px,4.4vw,58px);line-height:1.1;letter-spacing:-.02em}
+  .eslogan p{color:var(--suave);margin-top:22px;max-width:38ch}
+  .par{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:26px;align-items:start}
+  .par figure:first-child{margin-top:56px}
+  .par figure img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+  .par figure{overflow:hidden;background:#E4E0DA}
+  .par figure:hover img{transform:scale(1.03)}
+  .pie-foto{font-size:12px;color:var(--suave);margin-top:9px}
+
+  /* ---------- pie ---------- */
+  .pie{margin-top:90px;border-top:1px solid var(--linea);padding:30px 0 56px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--suave)}
+  .pie a:hover{color:var(--tinta)}
+  .redes{display:flex;gap:22px}
+
+  @media (max-width:860px){
+    .escena{grid-template-columns:1fr;gap:30px}
+    .panel{padding-bottom:0}
+    .menu{display:none}
+    .rejilla{grid-template-columns:1fr 1fr;gap:18px}
+    .dias{gap:20px}
+    .hechos{margin-top:50px}
+    .eslogan{grid-template-columns:1fr;gap:26px}
+    .par figure:first-child{margin-top:0}
+    .calle{padding-top:70px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .marco img,.marco:hover img,.tarjeta figure img,.par figure img{transition:none;transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="envoltura">
+
+  <header class="barra">
+    <div class="logo">
+      <img src="img/logo.jpg" alt="Logo de ALWAYS">
+      <div><b>ALWAYS</b><span>OLWIS STYLE</span></div>
+    </div>
+    <nav class="menu">
+      <a href="#semana">La semana</a>
+      <a href="#bolsos">Bolsos</a>
+      <a href="#calle">En la calle</a>
+    </nav>
+    <a class="wa" href="https://api.whatsapp.com/send/?phone=573127050472&text=%C2%A1%20Hola%20Always%21%20%E2%9C%A8%0A%0AEstoy%20interesad%40%20en%20t%C3%BA%20acompa%C3%B1amiento%20para%20la%20%20adquisici%C3%B3n%20de%20un%20producto.%20%F0%9F%8E%92">WhatsApp</a>
+  </header>
+
+  <section class="semana" id="semana">
+    <p class="rotulo">Una semana, un bolso para cada día</p>
+
+    <div class="dias" role="tablist">
+      <button class="dia" role="tab" aria-selected="false" data-look="lunes">Lunes</button>
+      <button class="dia" role="tab" aria-selected="false" data-look="martes">Martes</button>
+      <button class="dia" role="tab" aria-selected="true" data-look="miercoles">Miércoles</button>
+      <button class="dia" role="tab" aria-selected="false" data-look="jueves">Jueves</button>
+      <button class="dia" role="tab" aria-selected="false" data-look="viernes">Viernes</button>
+    </div>
+
+    <div class="escena">
+      <div class="marco">
+        <img id="foto" src="img/look-miercoles.jpg" alt="Look de miércoles: morral café con camiseta azul y pantalón camel">
+      </div>
+
+      <div class="panel">
+        <h1 id="titular">Café con azul marino,<br>para el día que no para</h1>
+        <p class="bajada" id="bajada">El morral que aguanta portátil, almuerzo y la reunión de las seis sin verse de oficina.</p>
+
+        <div class="pieza">
+          <p class="nom" id="nombre">Morral Ejecutivo · Café</p>
+          <p class="det" id="detalle">Cuero vegano · compartimiento para portátil</p>
+          <p class="precio" id="precio">$189.900</p>
+        </div>
+
+        <div class="acciones">
+          <a class="boton" id="comprar" href="https://api.whatsapp.com/send/?phone=573127050472&text=%C2%A1%20Hola%20Always%21%20%E2%9C%A8%0A%0AEstoy%20interesad%40%20en%20t%C3%BA%20acompa%C3%B1amiento%20para%20la%20%20adquisici%C3%B3n%20de%20un%20producto.%20%F0%9F%8E%92">Comprar por WhatsApp</a>
+          <a class="boton linea" href="#bolsos">Ver el bolso</a>
+        </div>
+        <span class="bajo">Envíos a toda Colombia · Garantía de 4 meses</span>
+      </div>
+    </div>
+
+    <div class="hechos">
+      <div class="hecho"><b>Cuero vegano</b><span>Con chapas de acero</span></div>
+      <div class="hecho"><b>De 5 a 20 años</b><span>Vida útil real</span></div>
+      <div class="hecho"><b>Kit de limpieza</b><span>Incluido en cada bolso</span></div>
+      <div class="hecho"><b>Equipaje de mano</b><span>Medidas estándar de cabina</span></div>
+    </div>
+  </section>
+
+  <section class="bolsos" id="bolsos">
+    <p class="rotulo">Los bolsos</p>
+    <div class="rejilla">
+      <article class="tarjeta">
+        <figure><img src="img/bolso-ejecutivo.jpg" alt="Morral Ejecutivo en cuero vegano café"></figure>
+        <h3>Morral Ejecutivo</h3>
+        <p class="det">Bolsillos frontales · portátil 15"</p>
+        <p class="val">$189.900</p>
+        <div class="colores"><i style="background:#8B5A2B"></i><i style="background:#17171A"></i></div>
+      </article>
+      <article class="tarjeta">
+        <figure><img src="img/bolso-duffel.jpg" alt="Duffel Bag negro con solapa y chapas de acero"></figure>
+        <h3>Duffel Bag</h3>
+        <p class="det">Solapa con chapas de acero</p>
+        <p class="val">$219.900</p>
+        <div class="colores"><i style="background:#17171A"></i></div>
+      </article>
+      <article class="tarjeta">
+        <figure><img src="img/bolso-urbano.jpg" alt="Morral Urbano negro en cuero vegano"></figure>
+        <h3>Morral Urbano</h3>
+        <p class="det">Liviano, para el día a día</p>
+        <p class="val">$164.900</p>
+        <div class="colores"><i style="background:#17171A"></i><i style="background:#1B2740"></i></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="calle" id="calle">
+    <div class="eslogan">
+      <div>
+        <h2>Arma tu estilo.<br>Nosotros ponemos<br>el bolso.</h2>
+        <p>Cada look de la semana se arma alrededor de un ALWAYS. Elige el día que más se parece a ti y llévate el bolso que lo sostiene.</p>
+      </div>
+      <figure>
+        <img src="img/calle-duffel.jpg" alt="Hombre con el Duffel Bag negro al hombro">
+        <figcaption class="pie-foto">Duffel Bag · Negro</figcaption>
+      </figure>
+    </div>
+
+    <div class="par">
+      <figure>
+        <img src="img/calle-ejecutivo.jpg" alt="Hombre sentado en la calle con el Morral Ejecutivo café">
+        <figcaption class="pie-foto">Morral Ejecutivo · Café · Medellín</figcaption>
+      </figure>
+      <figure>
+        <img src="img/bolso-urbano.jpg" alt="Morral Urbano negro sobre una roca">
+        <figcaption class="pie-foto">Morral Urbano · Negro</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer class="pie">
+    <span>ALWAYS · Olwis Style · Medellín, Colombia</span>
+    <div class="redes">
+      <a href="https://www.instagram.com/always_olwis" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@always_olwis" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://api.whatsapp.com/send/?phone=573127050472&text=%C2%A1%20Hola%20Always%21%20%E2%9C%A8%0A%0AEstoy%20interesad%40%20en%20t%C3%BA%20acompa%C3%B1amiento%20para%20la%20%20adquisici%C3%B3n%20de%20un%20producto.%20%F0%9F%8E%92">3127050472</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  const WA = "https://api.whatsapp.com/send/?phone=573127050472&text=%C2%A1%20Hola%20Always%21%20%E2%9C%A8%0A%0AEstoy%20interesad%40%20en%20t%C3%BA%20acompa%C3%B1amiento%20para%20la%20%20adquisici%C3%B3n%20de%20un%20producto.%20%F0%9F%8E%92";
+
+  const looks = {
+    lunes:{
+      img:"img/look-lunes.jpg",
+      alt:"Look de lunes: morral negro con camiseta café y pantalón camel",
+      titular:"Marrón y negro,<br>para arrancar la semana",
+      bajada:"El duffel de chapas de acero que carga tu semana completa desde el primer día.",
+      nombre:"Duffel Bag · Negro",
+      detalle:"Cuero vegano · solapa con chapas de acero",
+      precio:"$219.900"
+    },
+    martes:{
+      img:"img/look-martes.jpg",
+      alt:"Look de martes: morral café con buzo verde militar y pantalón camel",
+      titular:"Verde militar y camel,<br>para el segundo día",
+      bajada:"El morral café que combina con todo lo que ya tienes en el clóset.",
+      nombre:"Morral Ejecutivo · Café",
+      detalle:"Cuero vegano · compartimiento para portátil",
+      precio:"$189.900"
+    },
+    miercoles:{
+      img:"img/look-miercoles.jpg",
+      alt:"Look de miércoles: morral café con camiseta azul y pantalón camel",
+      titular:"Café con azul marino,<br>para el día que no para",
+      bajada:"El morral que aguanta portátil, almuerzo y la reunión de las seis sin verse de oficina.",
+      nombre:"Morral Ejecutivo · Café",
+      detalle:"Cuero vegano · compartimiento para portátil",
+      precio:"$189.900"
+    },
+    jueves:{
+      img:"img/look-jueves.jpg",
+      alt:"Look de jueves: morral negro con camisa blanca y pantalón azul marino",
+      titular:"Negro sobre marino,<br>cuando toca ir formal",
+      bajada:"Solapa con chapas de acero. Se ve serio sin parecer maletín de abogado.",
+      nombre:"Duffel Bag · Negro",
+      detalle:"Cuero vegano · chapas de acero",
+      precio:"$219.900"
+    },
+    viernes:{
+      img:"img/look-viernes.jpg",
+      alt:"Look de viernes: morral negro deportivo con buzo y leggings negros",
+      titular:"Todo negro,<br>del gimnasio a la calle",
+      bajada:"Liviano y de boca ancha. El que uno agarra sin pensar cuando va de afán.",
+      nombre:"Morral Urbano · Negro",
+      detalle:"Cuero vegano · liviano",
+      precio:"$164.900"
+    }
+  };
+
+  const foto = document.getElementById('foto');
+
+  /* Un solo lugar decide a donde va el boton de compra.
+     Cuando entre la pasarela, se cambia aqui y en ningun otro lado. */
+  function enlaceDeCompra(producto){
+    return WA;
+  }
+
+  document.querySelectorAll('.dia[data-look]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const l = looks[btn.dataset.look];
+      if(!l) return;
+      document.querySelectorAll('.dia[data-look]').forEach(b=>b.setAttribute('aria-selected','false'));
+      btn.setAttribute('aria-selected','true');
+      foto.src = l.img;
+      foto.alt = l.alt;
+      document.getElementById('titular').innerHTML = l.titular;
+      document.getElementById('bajada').textContent = l.bajada;
+      document.getElementById('nombre').textContent = l.nombre;
+      document.getElementById('detalle').textContent = l.detalle;
+      document.getElementById('precio').textContent = l.precio;
+      document.getElementById('comprar').href = enlaceDeCompra(l.nombre);
+    });
+  });
+</script>
+</body>
+</html>
