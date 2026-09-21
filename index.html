@@ -434,9 +434,12 @@
   function arrancarDeriva(){
     if (entregado || deriva) return;
     let ultimo = performance.now();
-    const VEL = 26;                                   /* px por segundo */
+    const VEL = 45;                                   /* px por segundo */
     posicion = carril.scrollLeft;
     deriva = requestAnimationFrame(function paso(ahora){
+      /* Si el carril esta donde no lo dejamos, lo movio el visitante:
+         eso si es un gesto horizontal de verdad y le cedemos el control. */
+      if (Math.abs(carril.scrollLeft - posicion) > 4) { entregarControl(); return; }
       const dt = (ahora - ultimo) / 1000; ultimo = ahora;
       posicion += VEL * dt;
       if (posicion >= mitad()) posicion -= mitad();
@@ -456,13 +459,24 @@
     carril.classList.add('enganche');   /* ahora si: el dedo engancha tarjeta a tarjeta */
   }
 
-  carril.addEventListener('pointerdown', entregarControl);
-  carril.addEventListener('wheel',       entregarControl, {passive:true});
-  carril.addEventListener('touchstart',  entregarControl, {passive:true});
-  carril.addEventListener('focusin',     entregarControl);
-  /* En escritorio basta acercar el mouse para que se detenga y poder elegir */
-  carril.addEventListener('mouseenter',  pararDeriva);
-  carril.addEventListener('mouseleave',  ()=>{ if(!entregado) arrancarDeriva(); });
+  /* Solo ceden el control los gestos con intencion: tocar un control, o
+     desplazar el carril a lo ancho (eso lo detecta arrancarDeriva viendo si
+     scrollLeft se corrio solo). Rozarlo con el dedo mientras se baja por la
+     pagina no cuenta: antes un touchstart cualquiera lo apagaba para siempre
+     y en el movil quedaba quieto sin que nadie hubiera querido pararlo. */
+  carril.addEventListener('pointerdown', ev=>{
+    if (ev.target.closest('.colores button, .cat-link')) entregarControl();
+  });
+  carril.addEventListener('focusin', entregarControl);
+
+  /* La pausa al pasar por encima solo se registra donde hay un puntero real.
+     En una pantalla tactil el toque dispara un mouseenter sintetico que
+     pausaba la deriva, y como el dedo nunca "sale" no llegaba el mouseleave
+     que la reanuda: el carrusel quedaba quieto para siempre. */
+  if (window.matchMedia('(hover: hover)').matches){
+    carril.addEventListener('mouseenter', pararDeriva);
+    carril.addEventListener('mouseleave', ()=>{ if(!entregado) arrancarDeriva(); });
+  }
 
   /* ---- flechas: avanzan una tarjeta y dan la vuelta al llegar al borde ---- */
   function anchoPaso(){
