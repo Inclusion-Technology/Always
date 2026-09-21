@@ -44,7 +44,7 @@
   .logo{display:flex;align-items:center;gap:14px}
   .logo img{width:46px;height:46px;object-fit:cover;background:#000}
   .logo b{font-family:var(--display);font-weight:400;font-size:16px;letter-spacing:.4em;text-indent:.4em}
-  .logo span{display:block;font-size:8px;letter-spacing:.32em;text-indent:.32em;color:var(--suave);margin-top:2px}
+  .logo span{display:block;font-size:9px;letter-spacing:.32em;text-indent:.32em;color:var(--suave);margin-top:2px}
   .menu{display:flex;gap:26px;font-size:13.5px;color:var(--suave)}
   .menu a:hover{color:var(--tinta)}
   .wa{font-size:13.5px;border-bottom:1px solid var(--linea);padding-bottom:2px;white-space:nowrap}
@@ -114,15 +114,19 @@
   .precio{font-family:var(--display);margin-top:10px;display:flex;gap:10px;align-items:baseline}
   .precio .ahora{font-size:20px;font-weight:400;color:var(--camel)}
   .precio .antes{font-size:14px;color:var(--suave);text-decoration:line-through}
-  .colores{display:flex;gap:9px;margin-top:12px;align-items:center}
-  .colores button{width:22px;height:22px;padding:0;border-radius:50%;border:1px solid var(--linea);background:transparent;cursor:pointer;position:relative;transition:transform .18s ease,opacity .2s}
+  .colores{display:flex;gap:12px;margin-top:12px;align-items:center}
+  .colores button{width:26px;height:26px;padding:0;border-radius:50%;border:1px solid var(--linea);background:transparent;cursor:pointer;position:relative;transition:transform .18s ease,opacity .2s}
   .colores button::after{content:"";position:absolute;inset:2px;border-radius:50%;background:var(--c,#ccc)}
+  /* Area de toque mayor que el circulo visible: con el dedo, 26px no se
+     aciertan. El ::before invisible la lleva a 36px sin agrandar el punto,
+     y el gap de 12px evita que se solapen entre vecinos. */
+  .colores button::before{content:"";position:absolute;inset:-5px;border-radius:50%}
   .colores button.prox{opacity:.35}
   .colores button:hover{transform:scale(1.12);opacity:1}
   .colores button[aria-selected="true"]{border-color:var(--tinta);box-shadow:0 0 0 1px var(--tinta) inset;opacity:1}
   .colores button:focus-visible{outline:1px solid var(--tinta);outline-offset:3px}
   .colores .nombre-color{font-size:12px;color:var(--suave);margin-left:6px;letter-spacing:.04em}
-  .cat-link{display:inline-block;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--linea);padding-bottom:2px;margin-top:14px;transition:border-color .2s}
+  .cat-link{display:inline-block;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--linea);padding:6px 0 4px;margin-top:10px;transition:border-color .2s}
   .cat-link:hover{border-color:var(--tinta)}
   .info{margin-top:24px;text-align:center;font-size:12.5px;color:var(--suave)}
   .bolsos-cta{display:flex;justify-content:center;margin-top:28px}
@@ -168,7 +172,10 @@
     .det-grid{grid-template-columns:1fr}
     .galeria{grid-template-columns:1fr 1fr;gap:12px}
     .campana .hero{aspect-ratio:4/3}
-    .flecha{width:36px;height:36px;font-size:18px}
+    .flecha{width:40px;height:40px;font-size:18px}
+    .colores{gap:14px}
+    .colores button{width:30px;height:30px}
+    .colores button::before{inset:-6px}
     .bolsos,.detalles,.campana{padding-top:70px}
   }
   @media (prefers-reduced-motion:reduce){
