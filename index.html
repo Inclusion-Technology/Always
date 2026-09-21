@@ -145,6 +145,11 @@
   .galeria figure{overflow:hidden;background:#E4E0DA;aspect-ratio:3/4}
   .galeria figure img{height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
   .galeria figure:hover img{transform:scale(1.04)}
+  /* Banda ancha de cierre: la foto es casi cuadrada, así conserva el
+     paisaje en vez de perderlo en un recorte vertical. */
+  .banda{margin-top:16px;overflow:hidden;background:#E4E0DA}
+  .banda img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .banda:hover img{transform:scale(1.02)}
 
   /* ---------- pie ---------- */
   .pie{margin-top:96px;border-top:1px solid var(--linea);padding:30px 0 56px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--suave)}
@@ -293,6 +298,10 @@
       <figure><img src="img/campana-mujer-urbana.jpg"  alt="Mujer con abrigo camel y morral negro apoyada en una baranda" loading="lazy"></figure>
       <figure><img src="img/campana-mujer-urbana2.jpg" alt="Mujer con abrigo camel y morral negro, plano completo urbano" loading="lazy"></figure>
     </div>
+    <figure class="banda">
+      <img src="img/campana-naturaleza.jpg" alt="Duffle Bag negro sobre una piedra, con montaña y vegetación al fondo" loading="lazy">
+      <figcaption class="pie-foto">Disfruta el proceso y goza del resultado</figcaption>
+    </figure>
   </section>
 
   <footer class="pie">
