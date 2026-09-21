@@ -90,11 +90,36 @@ Verificar también que no quede ninguna foto huérfana: todo archivo en
 
 ## Estado del repositorio
 
-El trabajo va en la rama `claude/always-olwis-netlify-deploy-79uco4`.
-`main` recibió subidas manuales desde el móvil que borraron los archivos
-que el HTML referenciaba, así que puede estar en un estado inconsistente:
-conviene comprobar `git ls-tree -r origin/main --name-only` antes de
-asumir nada sobre su contenido.
+El trabajo va directo en `main`, que es lo que Netlify publica. La dueña
+no quiere ramas de Claude.
+
+Ella sube fotos por la interfaz web mientras se trabaja, así que `main`
+avanza sola: conviene `git fetch origin main` antes de empujar y rebasar
+encima en vez de forzar.
+
+El repositorio es **público** y ella decidió dejarlo así. El LICENSE
+declara todos los derechos reservados y separa la titularidad del código
+(Technology Inclusion) de la de las fotos (Olwis Style). La cabecera del
+HTML y el pie repiten la autoría; no quitarlos al editar.
+
+## Fotos: ella manda los originales, aquí se procesan
+
+Llegan en HEIC de iPhone (3024x4032) o en JPEG de varios megas. Se
+convierten con `pillow-heif` y se dejan en 900px de ancho, calidad 82,
+por debajo de 270 KB.
+
+Antes de dar una foto por buena hay que mirarle las placas metálicas: las
+generadas con IA han llegado varias veces con "ALWAY" sin la S, y una con
+una segunda placa de texto inventado. Es una marca en un sitio comercial,
+así que conviene avisarlo aunque la foto la haya pedido ella.
+
+La galería de campaña se mantiene en nueve fotos: en tres columnas, una
+décima deja una sola colgando en la cuarta fila, y ella lo nota.
+
+Las fotos de esa galería entran en un marco 3:4 con `object-fit: cover`.
+Una foto que ya venga en 3:4 no se recorta y su sujeto se ve más lejos
+que el de las vecinas; eso confunde y parece un problema de color cuando
+es de encuadre.
 
 ## Idioma
 
